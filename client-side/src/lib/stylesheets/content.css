@@ -246,6 +246,19 @@ div[class^="featured-grid"] img{
     padding-block: 2rem;
 }
 
+.about-content .about-banner{
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-banner-img{
+    /* image has height to width ratio of 1 to 1.78 
+    so size of image must be relative to this ratio */
+    height: clamp(30rem, 4.6875vw, 45rem);
+    width: clamp(53.4rem, 8.34375vw, 80rem);
+}
+
 /* FORM SECTION */
 #data-form-section{
     /* size for each section*/

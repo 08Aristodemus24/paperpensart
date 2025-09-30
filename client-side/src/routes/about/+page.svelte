@@ -1,5 +1,6 @@
 <script>
     import Hero from "$lib/Hero.svelte";
+    import BannerImg from "../../assets/mediafiles/about website.png";
 </script>
 <Hero section_name="about">
     <div class="about-headers">
@@ -346,4 +347,7 @@
         her art. Outside of school, she also enjoys selling 
         her works at local art conventions.
     </p>
+    <div class="about-banner">
+        <img class="about-banner-img" src={BannerImg} alt=""/>
+    </div>
 </Hero>

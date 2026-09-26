@@ -4,7 +4,6 @@
     const images = [
         '0983.jpg',
         'IMG_2530.jpg', 
-         
         'IMG_0470.png', 
         'IMG_0513.jpg', 
         'IMG_1451.png', 
@@ -19,16 +18,33 @@
         'Waiting.jpg'
     ]
 </script>
+
+<!-- Landing Hero Section -->
 <Hero>
     <div class="featured-image-container">
+        <div class="landing-content">
+            <h1 class="landing-title">Lara Cueva</h1>
+            <p class="landing-subtitle">Illustrator & Visual Storyteller</p>
+            <p class="landing-description">
+                Crafting narratives through vibrant colors and expressive lines. 
+                Exploring the intersection of digital art and visual communication.
+            </p>
+            <a href="#featured-section" class="landing-cta">View Portfolio</a>
+        </div>
     </div>
 </Hero>
+
+<!-- Featured Work Section -->
 <Hero section_name="featured">
-    <h1 class="featured-header">Featured</h1>
+    <div class="featured-header-container">
+        <h2 class="featured-header">Featured Works</h2>
+        <p class="featured-subheader">A selection of recent illustrations and concept pieces</p>
+    </div>
+    
     <div class="grid-container">
         {#each images as image, index}
             <div class={`featured-grid-${index + 1}`} data-grid-index={`${index + 1}`}>
-                <img class="featured-grid-image" src={`https://raw.githubusercontent.com/08Aristodemus24/lalais-portfolio/master/client-side/src/assets/mediafiles/compressed/${image}`} alt=""/>
+                <img class="featured-grid-image" src={`https://raw.githubusercontent.com/08Aristodemus24/lalais-portfolio/master/client-side/src/assets/mediafiles/compressed/${image}`} alt="Portfolio piece ${index + 1}"/>
             </div>
         {/each}
     </div>

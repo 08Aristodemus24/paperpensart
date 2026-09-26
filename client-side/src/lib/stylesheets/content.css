@@ -1,262 +1,408 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
-/* LANDING SECTION */
-
-section[id*="section"]{
+/* --- GLOBAL SECTION STYLES --- */
+section[id*="section"] {
     min-height: calc(100vh - clamp(3.5rem, 9vw, 9rem));
     margin-top: clamp(3.5rem, 9vw, 9rem);
-    /* font-family: 'Century Gothic', sans-serif; */
 }
 
-#landing-section{
+/* --- LANDING SECTION --- */
+#landing-section {
     position: relative;
 }
 
-#landing-section::after{
-    /* size */
+#landing-section::after {
     width: 100%;
     height: 100%;
-
-    /* position */
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    /* to not affect contents color place pseudo element behind content */
     z-index: -1;
-
-    /* alignment */ 
-    /* margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto; */
-
-    /* design */
     content: '';
     background-image: url('https://raw.githubusercontent.com/08Aristodemus24/lalais-portfolio/master/client-side/src/assets/mediafiles/compressed/IMG_4993.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* filter: grayscale(100%) brightness(50%); */
 }
 
-#featured-section{
+/* Landing Hero Content */
+.featured-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.landing-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.landing-title {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    color: white;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.landing-subtitle {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.landing-description {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+}
+
+.landing-cta {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.landing-cta:hover {
+    background-color: transparent;
+    color: white;
+    outline: 1px solid white;
+    transform: translateY(-2px);
+}
+
+/* --- FEATURED SECTION --- */
+#featured-section {
     min-height: 100vh;
     margin-top: 0;
-    /* outline: 1px solid saddlebrown; */
     background-color: black;
+    padding-bottom: 5rem;
 }
 
-#featured-section h1{
-    /* outline: 1px solid red; */
+/* Featured Header */
+.featured-header-container {
     text-align: center;
-    color: white;
-    font-size: clamp(24px, 2vw, 32px);
-    font-weight: 300;
-    font-family: 'League Spartan', sans-serif;
-    text-decoration: none;
-
-    padding-block: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
 }
 
-#featured-section .grid-container{
+.featured-header {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: white;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 1px;
+}
+
+.featured-subheader {
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* --- PORTFOLIO GRID --- */
+.grid-container {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, 4in);
-    grid-template-rows: repeat(16, 5rem);
-    row-gap: 1rem;
-    column-gap: 1rem;
-
-    /* outline: 1px solid red; */
-    /* margin-block: 1rem; */
+    /* Default desktop layout: 3 columns */
+    grid-template-columns: repeat(3, 1fr);
+    /* Fixed row height for desktop masonry effect */
+    grid-auto-rows: 5rem; 
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1rem;
 }
 
-div[class^="featured-grid"]{
+/* Grid Item Styling */
+div[class^="featured-grid"] {
     position: relative;
     border-radius: 7px;
-    border: 1px solid red;
+    border: 1px solid #333;
     overflow: hidden;
+    transition: border-color 0.3s ease;
 }
 
-/* div[class^="featured-grid"]::after{
-    width: 100%;
-    height: 100%;
-    
+div[class^="featured-grid"]:hover {
+    border-color: #666;
+}
+
+div[class^="featured-grid"] img {
     position: absolute;
     inset: 0;
-    margin: auto;
-
-    content: attr(data-grid-index);
-} */
-
-div[class^="featured-grid"] img{
-    position: absolute;
-    inset: 0;
-    /* margin: auto; */
     object-fit: cover;
-
     height: 100%;
     width: 100%;
+    transition: transform 0.5s ease;
 }
 
-.featured-grid-1{
-    grid-column: 1 / 2;
-    grid-row: 1 / 5;
+div[class^="featured-grid"]:hover img {
+    transform: scale(1.05);
 }
 
-.featured-grid-2{
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
+/* --- DESKTOP GRID MAPPING (Only applies to large screens) --- */
+.featured-grid-1 { grid-column: 1 / 2; grid-row: 1 / 5; }
+.featured-grid-2 { grid-column: 2 / 3; grid-row: 1 / 3; }
+.featured-grid-3 { grid-column: 3 / 4; grid-row: 1 / 6; }
+.featured-grid-4 { grid-column: 1 / 2; grid-row: 5 / 10; }
+.featured-grid-5 { grid-column: 2 / 3; grid-row: 3 / 5; }
+.featured-grid-6 { grid-column: 3 / 4; grid-row: 6 / 10; }
+.featured-grid-7 { grid-column: 1 / 2; grid-row: 10 / 15; }
+.featured-grid-8 { grid-column: 2 / 3; grid-row: 5 / 9; }
+.featured-grid-9 { grid-column: 3 / 4; grid-row: 10 / 14; }
+.featured-grid-10 { grid-column: 1 / 2; grid-row: 15 / 17; }
+.featured-grid-11 { grid-column: 2 / 3; grid-row: 9 / 13; }
+.featured-grid-12 { grid-column: 3 / 4; grid-row: 14 / 16; }
+.featured-grid-13 { grid-column: 2 / 3; grid-row: 13 / 15; }
+.featured-grid-14 { grid-column: 2 / 3; grid-row: 15 / 16; }
+
+/* --- RESPONSIVE GRID ADJUSTMENTS --- */
+
+/* Tablet & Smaller (Width < 1024px) */
+@media (max-width: 1024px) {
+    .grid-container {
+        /* Switch to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+        /* CRITICAL FIX: Reset grid-auto-rows so it doesn't rely on 5rem heights */
+        grid-auto-rows: auto; 
+        /* Add more gap for breathing room */
+        gap: 1.5rem; 
+    }
+
+    /* CRITICAL FIX: Remove all desktop row/column spanning and force square aspect ratio */
+    div[class^="featured-grid"] {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        aspect-ratio: 1 / 1; 
+        width: 100%;
+    }
 }
 
-.featured-grid-3{
-    grid-column: 3 / 4;
-    grid-row: 1 / 6;
+/* Mobile (Width < 640px) */
+@media (max-width: 640px) {
+    .grid-container {
+        /* Switch to 1 column */
+        grid-template-columns: 1fr; 
+        grid-auto-rows: auto; 
+        gap: 1.5rem;
+        padding-inline: 1.5rem;
+    }
+
+    div[class^="featured-grid"] {
+        /* Maintain 1:1 square shape on mobile */
+        aspect-ratio: 1 / 1; 
+        width: 100%;
+    }
 }
 
-.featured-grid-4{
-    grid-column: 1 / 2;
-    grid-row: 5 / 10;
-}
-
-.featured-grid-5{
-    grid-column: 2 / 3;
-    grid-row: 3 / 5;
-}
-
-.featured-grid-6{
-    grid-column: 3 / 4;
-    grid-row: 6 / 10;
-}
-
-.featured-grid-7{
-    grid-column: 1 / 2;
-    grid-row: 10 / 15;
-}
-
-.featured-grid-8{
-    grid-column: 2 / 3;
-    grid-row: 5 / 9;
-}
-
-.featured-grid-9{
-    grid-column: 3 / 4;
-    grid-row: 10 / 14;
-}
-
-.featured-grid-10{
-    grid-column: 1 / 2;
-    grid-row: 15 / 17;
-}
-
-.featured-grid-11{
-    grid-column: 2 / 3;
-    grid-row: 9 / 13;
-}
-
-.featured-grid-12{
-    grid-column: 3 / 4;
-    grid-row: 14 / 16;
-}
-
-.featured-grid-13{
-    grid-column: 2 / 3;
-    grid-row: 13 / 15;
-}
-
-.featured-grid-14{
-    grid-column: 2 / 3;
-    grid-row: 15 / 16;
-}
-
-
-/* ABOUT SECTION */
-#about-section{
-    /* border: 1px solid red; */
+/* --- ABOUT SECTION --- */
+#about-section {
     background-color: black;
-
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
-#about-section .about-content{
-    /* outline: 1px solid red; */
-    width: 50%;
+#about-section .about-content {
+    flex: 1 1 400px; /* Grow, shrink, base width 400px */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-#about-section .about-content .about-headers{
-    border: 1px solid green;
-    padding-block: 2rem;
-}
-
-.about-content .about-headers{
+.about-content .about-headers {
     text-align: left;
     color: white;
     font-size: clamp(12px, 1vw, 1rem);
     font-weight: 300;
     font-family: 'League Spartan', sans-serif;
-    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
 }
 
-.about-content .about-socials{
-    border: 1px solid saddlebrown;
+.about-headers p {
+    margin: 0.25rem 0;
+}
+
+/* Minimalist Social Links */
+.about-content .about-socials {
     display: flex;
-    column-gap: 1rem;
+    gap: 1.5rem;
 }
 
-.about-socials a{
+.about-socials a {
     display: block;
-
     color: white;
-    text-decoration: underline;
-
-    transition: color 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
 }
 
-.about-socials svg{
-    /* design */
+.about-socials svg {
     fill: white;
-    cursor: pointer;
-    /* outline: 1px solid lightgreen; */
-    
-    /* size */
-    width: clamp(15px, 2.34375vw, 22.5px);
-    height: clamp(15px, 2.34375vw, 22.5px);
-
-    /* transition */
-    transition-property: fill;
-    transition-duration: 250ms;
-    transition-timing-function: linear;
+    width: clamp(18px, 2vw, 24px);
+    height: clamp(18px, 2vw, 24px);
+    transition: fill 0.25s ease-in-out;
 }
 
-.about-socials a:hover svg{
+.about-socials a:hover svg {
     fill: grey;
 }
 
-#about-section .about-content .about-bio{
-    border: 1px solid red;
+.about-content .about-bio {
     text-align: justify;
-    color: white;
-    font-size: clamp(14px, 2.1875vw, 22.4px);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(14px, 1.2vw, 18px);
     font-weight: 300;
     font-family: 'League Spartan', sans-serif;
-    text-decoration: none;
-
-    padding-block: 2rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.about-content .about-banner{
-    border: 1px solid red;
-    position: relative;
+/* Responsive About Image Container */
+.about-content .about-banner {
+    /* Changed flex basis to 500px so it starts larger on desktop */
+    flex: 1 1 500px; 
+    max-width: 800px; /* Prevents it from getting absurdly large */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    border-radius: 8px;
+    /* Ensures the container itself maintains the 16:9 ratio */
+    aspect-ratio: 16 / 9; 
 }
 
-.about-banner-img{
-    /* image has height to width ratio of 1 to 1.78 
-    so size of image must be relative to this ratio */
-    height: clamp(30rem, 4.6875vw, 45rem);
-    width: clamp(53.4rem, 8.34375vw, 80rem);
+.about-banner-img {
+    width: 100%;
+    height: 100%;
+    /* 'contain' ensures the whole 16:9 image is seen without cropping. 
+       Change to 'cover' if you want it to fill the box even if it crops slightly. */
+    object-fit: contain; 
+    display: block;
+}
+
+/* --- NEW ROUTES: CONCEPTS & ILLUSTRATION PLACEHOLDERS --- */
+
+/* Concept Page Grids */
+#concepts-section {
+    background-color: black;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+#concepts-section h2 {
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.concepts-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.concept-category {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.concept-category:hover {
+    background-color: #2a2a2a;
+    border-color: #555;
+}
+
+.concept-category h3 {
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.concept-category p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Illustration Page Grid */
+#illustration-section {
+    background-color: black;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+#illustration-section h2 {
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.illustration-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.illustration-placeholder {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-family: 'League Spartan', sans-serif;
 }
 
 /* FORM SECTION */

@@ -348,6 +348,6 @@
         her works at local art conventions.
     </p>
     <div class="about-banner">
-        <img class="about-banner-img" src={BannerImg} alt=""/>
+        <img class="about-banner-img" src={BannerImg} alt="Lara Cueva Banner"/>
     </div>
 </Hero>
